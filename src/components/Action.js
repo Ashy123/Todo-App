@@ -1,12 +1,9 @@
 import React from "react";
 
-const Action = () => {
-  const handlePick = () => {
-    alert("action component");
-  };
+const Action = (props) => {
   return (
     <div>
-      <button onClick={handlePick}>What to do</button>
+      <button onClick={props.pickOption}>What to do</button>
     </div>
   );
 };

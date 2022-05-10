@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Addoption = () => {
-  const handlePick = () => {
-    alert("ASHY");
+const Addoption = (props) => {
+  const [error, setError] = useState(null);
+  const handleItem = (event) => {
+    Event.preventDefault();
+
+    const option = Event.target.elements.option.value.trim();
+    const errorData = props.addItem(option);
+    setError(errorData);
+    event.target.elements.option.value = "";
   };
+
   return (
     <div>
-      <button onClick={handlePick}>My Name is ASHLEY</button>
+      {error && <p>{error}</p>}
+      <form onSubmit={handleItem}>
+        <input type="text" name="option" />
+        <button>add-option</button>
+      </form>
     </div>
   );
 };
